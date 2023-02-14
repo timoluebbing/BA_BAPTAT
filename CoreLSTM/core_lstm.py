@@ -3,7 +3,7 @@ from torch import nn
 
 class CORE_NET(nn.Module):
     def __init__(self, input_size=45, hidden_layer_size=360):
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        self.device = torch.device('cpu') # 'cuda' if torch.cuda.is_available() else 
         super(CORE_NET,self).__init__()
         self.input_size = input_size
         self.hidden_size = hidden_layer_size

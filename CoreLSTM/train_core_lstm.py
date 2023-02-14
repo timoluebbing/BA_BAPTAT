@@ -3,7 +3,8 @@ from torch import nn
 import matplotlib.pyplot as plt
 
 import sys
-sys.path.append('D:/Uni/Kogni/Bachelorarbeit/Code/BA_BAPTAT')
+# sys.path.append('D:/Uni/Kogni/Bachelorarbeit/Code/BA_BAPTAT')
+sys.path.append('C:/Users/TimoLuebbing/Desktop/BA_BAPTAT')
 from CoreLSTM.core_lstm import CORE_NET
 from CoreLSTM.test_core_lstm import LSTM_Tester
 from Data_Compiler.data_preparation import Preprocessor
@@ -12,7 +13,7 @@ from torch.utils.data import TensorDataset, DataLoader
 
 class LSTM_Trainer():
     ## General parameters 
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cpu') # 'cuda' if torch.cuda.is_available() else 
 
     def __init__(self, loss_function, learning_rate, momentum, l2_penality, batch_size):
         self._model = CORE_NET()
@@ -245,7 +246,7 @@ def main():
     num_dimensions = 3
 
     # Training parameters
-    epochs = 10000
+    epochs = 2000
     mse=nn.MSELoss()
     # loss_function=nn.MSELoss()
     # loss_function= lambda x, y: mse(x, y) * (num_features * num_dimensions)
@@ -269,7 +270,7 @@ def main():
     # Init tools
     data_asf_path = 'Data_Compiler/S35T07.asf'
     data_amc_path = 'Data_Compiler/S35T07.amc'
-    model_save_path = 'CoreLSTM/models/LSTM_46_cell.pt'
+    model_save_path = 'CoreLSTM/models/LSTM_46_cell_TIMO.pt'
 
     with torch.no_grad():
         # Preprocess data
@@ -282,7 +283,7 @@ def main():
         )
 
     # Train LSTM
-    # losses = trainer.train(epochs, io_seq, model_save_path)
+    losses = trainer.train(epochs, io_seq, model_save_path)
 
     test_input = dt_train[0,-train_window:]
 

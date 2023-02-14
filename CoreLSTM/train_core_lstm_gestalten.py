@@ -4,7 +4,9 @@ import matplotlib.pyplot as plt
 import math
 
 import sys
-sys.path.append('D:/Uni/Kogni/Bachelorarbeit/Code/BA_BAPTAT')
+# sys.path.append('D:/Uni/Kogni/Bachelorarbeit/Code/BA_BAPTAT')
+sys.path.append('C:\\Users\\TimoLuebbing\\Desktop\\BA_BAPTAT')
+print(sys.path)
 from CoreLSTM.core_lstm import CORE_NET
 from CoreLSTM.test_core_lstm_gestalten import LSTM_Tester
 from Data_Compiler.data_preparation import Preprocessor
@@ -417,7 +419,7 @@ def main():
     # Init tools
     data_asf_path = 'Data_Compiler/S35T07.asf'
     data_amc_path = 'Data_Compiler/S35T07.amc'
-    model_save_path = 'CoreLSTM/models/ADAM/LSTM_26_pos.pt'
+    model_save_path = 'CoreLSTM/models/ADAM/LSTM_26_pos_TIMO.pt'
 
     with torch.no_grad():
         # Preprocess data
